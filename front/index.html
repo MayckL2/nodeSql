@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud-node</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="px-8">
+    <h1>Api filmes</h1>
+
+    <button class="bg-purple-900 rounded-xl text-white px-4 py-1 hover:bg-purple-700 transition-[background-color]"
+        id="post">Cadastrar filme +</button>
+
+    <hr>
+
+    <aside id="modalCadastro" class="absolute top-0 left-0 w-full h-screen flex items-center justify-center bg-slate-500/80 hidden">
+        <form action="#" class="bg-slate-500 rounded-xl p-4 relative flex flex-col justify-around w-11/12 sm:w-1/2 h-60">
+            <p id="fechaAside" class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-2 hover:bg-red-700 cursor-pointer">X</p>
+            <label for="name" class="font-bold">Nome de filme:</label>
+            <input type="text" name="name" id="nomeFilme" placeholder="Avatar..." class="bg-transparent border-b-2 border-white focus:outline-none mb-4">
+
+            <label for="sinopse" class="font-bold">Sinopse:</label>
+            <input type="text" name="sinopse" id="sinopseFilme" placeholder="Alienigenas azuis..." class="bg-transparent border-b-2 border-white focus:outline-none mb-4">
+
+            <input id="salvaFilme" type="button" value="Salvar +" class="bg-purple-900 hover:bg-purple-700 rounded-lg cursor-pointer py-2 font-bold text-white">
+        </form>
+    </aside>
+
+    <aside id="modalEdicao" class="absolute top-0 left-0 w-full h-screen flex items-center justify-center bg-slate-500/80 hidden">
+        <form action="#" class="bg-slate-500 rounded-xl p-4 relative flex flex-col justify-around w-11/12 sm:w-1/2 h-60">
+            <p id="fechaAsideEdicao" class="absolute top-4 right-4 bg-red-500 text-white rounded-full px-2 hover:bg-red-700 cursor-pointer">X</p>
+            <label for="name" class="font-bold">Nome de filme:</label>
+            <input type="text" name="name" id="nomeFilmeEd" placeholder="Avatar..." class="bg-transparent border-b-2 border-white focus:outline-none mb-4">
+
+            <label for="sinopse" class="font-bold">Sinopse:</label>
+            <input type="text" name="sinopse" id="sinopseFilmeEd" placeholder="Alienigenas azuis..." class="bg-transparent border-b-2 border-white focus:outline-none mb-4">
+
+            <input id="put" type="button" value="Editar +" class="bg-purple-900 hover:bg-purple-700 rounded-lg cursor-pointer py-2 font-bold text-white">
+        </form>
+    </aside>
+
+    <main id="retorno"></main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
