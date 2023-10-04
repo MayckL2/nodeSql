@@ -26,7 +26,24 @@ app.get('/filmes', (req, res) => {
             if (err){
                 res.json({ status: 'erro', msg: 'Falha no retorno!'})
             }else{
-                res.json({ status: 'sucesso', msg: 'Retorno tipo GET!', data: result})
+                res.json({ status: 'sucesso', data: result})
+            }
+        })
+    });
+})
+
+app.get('/filmesQuantidade', (req, res) => {
+    con.connect(function (err) {
+        if (err) throw err;
+        console.log("Conectado ao banco!")
+    
+        var sql = "select count(id) from filmes;"
+        
+        con.query(sql, function (err, result) {
+            if (err){
+                res.json({ status: 'erro', msg: 'Falha no retorno!'})
+            }else{
+                res.json({ status: 'sucesso', data: result})
             }
         })
     });
@@ -115,7 +132,7 @@ app.delete('/filmes', (req, res) => {
                 if (err){
                     res.json({ status: 'erro', msg: 'Falha ao deletar filme!', erro: err})
                 }else{
-                    res.json({ status: 'sucesso', msg: `Filme deletado com sucesso!`,})
+                    res.json({ status: 'sucesso', msg: `${req.body.nome} deletado com sucesso!`,})
                 }
             })
         });
